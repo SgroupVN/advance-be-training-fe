@@ -1,15 +1,14 @@
 import { PersistentStorage } from 'src/shared/model/usecases/persistent-storage';
-import { Tokens } from '../../../entities/auth/api/auth-api-client';
+import { UserCredentials } from '../../../entities/auth/api/auth-api-client';
 
 const AUTHENTICATION_KEY = 'accessToken';
 const REFRESH_TOKEN_KEY = 'refreshToken';
 
 export const persistentStorage: PersistentStorage = {
-  saveTokens(tokens: Tokens): void {
-    tokens.tokens.forEach(token => {
-      window.localStorage.setItem(token.name, token.value);
-    });
-  },
+  /**
+   * @deprecated
+   */
+  saveTokens(tokens: UserCredentials): void {},
   getAccessToken(): string | null {
     return window.localStorage.getItem(AUTHENTICATION_KEY);
   },

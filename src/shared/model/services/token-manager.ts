@@ -1,11 +1,11 @@
 import {
   authApiClient,
-  Tokens
+  UserCredentials
 } from '../../../entities/auth/api/auth-api-client';
 import { ITokenManager } from './client/token-manager.interface';
 import { persistentStorage } from './persistent.storage';
 
-let renewHandler: Promise<Tokens> | undefined;
+let renewHandler: Promise<UserCredentials> | undefined;
 
 export const tokenManager: ITokenManager = {
   clean(): void {
@@ -20,7 +20,7 @@ export const tokenManager: ITokenManager = {
       renewHandler = authApiClient.renewTokens(refreshToken);
     }
 
-    const tokens: Tokens = await renewHandler;
+    const tokens: UserCredentials = await renewHandler;
 
     persistentStorage.saveTokens(tokens);
 

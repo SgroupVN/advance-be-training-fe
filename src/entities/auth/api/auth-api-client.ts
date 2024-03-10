@@ -5,8 +5,8 @@ export interface LoginRequest {
   password: string;
 }
 
-export interface Tokens {
-  tokens: { name: string; type: string; value: string }[];
+export interface UserCredentials {
+  accessToken: string;
 }
 
 export interface RenewTokensRequest {
@@ -15,27 +15,27 @@ export interface RenewTokensRequest {
 
 export const authApiClient = {
   login(body: LoginRequest) {
-    return httpClient.request<Tokens>({
+    return httpClient.request<UserCredentials>({
       method: 'post',
       data: body,
       url: '/auth/login'
     });
   },
   renewTokens(refreshToken: string) {
-    return httpClient.request<Tokens>({
+    return httpClient.request<UserCredentials>({
       method: 'post',
       data: { refreshToken } as RenewTokensRequest,
       url: '/auth/tokens/renew'
     });
   },
   logout(refreshToken: string) {
-    return httpClient.request<Tokens>({
+    return httpClient.request<UserCredentials>({
       method: 'delete',
       data: { refreshToken } as RenewTokensRequest,
       url: '/auth/logout'
     });
   },
-  registerByCredentials(payload: LoginRequest): Promise<Tokens> {
-    return Promise.resolve({ tokens: [] });
+  registerByCredentials(payload: LoginRequest): Promise<UserCredentials> {
+    return Promise.resolve({ accessToken: '' });
   }
 };

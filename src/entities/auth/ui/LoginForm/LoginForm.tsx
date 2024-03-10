@@ -26,27 +26,11 @@ export function LoginForm(): ReactElement {
   const { push } = useRouter();
   const showNotify = useNotify();
 
-  const { mutate } = useLoginMutation();
-
   function submitResolver(model: LoginModel) {
     const loginCredentials = {
       username: model.username,
       password: model.password
     };
-
-    mutate(loginCredentials, {
-      onSuccess: credentials => {
-        persistentStorage.saveTokens(credentials);
-        push('/');
-      },
-      onError: () => {
-        showNotify({
-          title: 'Incorrect username or password',
-          status: 'error'
-        });
-        reset();
-      }
-    });
   }
 
   return (
