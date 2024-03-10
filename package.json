@@ -10,6 +10,9 @@
     "pretty": "prettier --write --config .prettierrc.json {modules,pages,config}/**/*.{ts,tsx}",
     "prepare": "husky install"
   },
+  "engines": {
+    "node": ">=16"
+  },
   "dependencies": {
     "@chakra-ui/react": "^2.2.1",
     "@emotion/react": "^11",
@@ -48,6 +51,7 @@
   },
   "devDependencies": {
     "@babel/node": "7.16.8",
+    "@feature-sliced/eslint-config": "^0.1.0-beta.6",
     "@types/lodash.isempty": "^4.4.7",
     "@types/lodash.uniq": "^4.5.7",
     "@types/node": "18.0.0",
@@ -64,8 +68,9 @@
     "eslint-config-react-app": "7.0.0",
     "eslint-import-resolver-ts": "^0.4.2",
     "eslint-import-resolver-typescript": "^1.1.1",
+    "eslint-plugin-boundaries": "^4.2.0",
     "eslint-plugin-flowtype": "8.0.3",
-    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-import": "^2.25.3",
     "eslint-plugin-jest": "26.1.4",
     "eslint-plugin-jest-dom": "4.0.1",
     "eslint-plugin-jsx-a11y": "6.x",

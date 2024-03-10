@@ -1,8 +1,8 @@
 import { Container, Grid, GridItem, Image } from '@chakra-ui/react';
 import Head from 'next/head';
-import { NextPageWithLayout } from 'src/system/infrastructure/next.types';
-import { RegisterForm } from '../src/system/app/internal/components/RegisterForm/RegisterForm';
-import { NoLayout } from '../src/system/app/internal/components/NoLayout';
+import { NextPageWithLayout } from 'src/shared/model/next.types';
+import { RegisterForm } from '../src/entities/auth/ui/RegisterForm/RegisterForm';
+import { NoLayout } from '../src/shared/ui/components/NoLayout';
 
 const RegisterPage: NextPageWithLayout = () => {
   return (
