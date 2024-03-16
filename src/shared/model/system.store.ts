@@ -1,5 +1,4 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { User } from '../../user/domain/models/user.type';
 import { AppState } from '../config/redux.config';
 import { SystemStore } from './system-store.types';
 
@@ -7,7 +6,7 @@ const systemSlice = createSlice({
   name: 'system',
   initialState: {} as SystemStore,
   reducers: {
-    setUser(state, action: PayloadAction<User>) {
+    setUser(state, action: PayloadAction<{}>) {
       state.userSession = action.payload;
     },
     set(state, action: PayloadAction<{ key: keyof SystemStore; data: any }>) {
